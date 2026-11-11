@@ -8,6 +8,12 @@
 
 A free, text-only skill by Codelady Abroad for students and beginners. It runs anywhere a plain prompt runs: Claude Code, the Claude app, other agents or a website form. It never needs your file or any code to run.
 
+## New in 1.1.0
+
+Russian and Turkish Excel function names checked against Microsoft Support; a version check with older-Excel fallbacks; data-cleaning recipes; conditional formatting; formula auditing; LET and Sheets-only helpers; paste-in test data; grade book and loan (PMT) templates. See [CHANGELOG.md](CHANGELOG.md).
+
+Agensi package: `pwsh ./scripts/build-agensi-zip.ps1` builds `dist/sheets-formula-coach.zip` (SKILL.md, references/, examples/, CHANGELOG.md only). Listing texts: [LISTING.md](LISTING.md). Blind test results: [`tests/`](tests/).
+
 ## What you get
 
 - The formula for **your app** (Excel 365 / older Excel / Google Sheets) and **your locale**: `,` or `;` separators, translated Excel function names (e.g. Russian `ВПР`, Turkish `DÜŞEYARA`).

@@ -33,7 +33,7 @@ Rule: the sum range comes first in SUMIFS, then pairs of (range, condition). All
 
 | Need | Formula | Works in |
 |---|---|---|
-| All rows where status is "Unpaid" | `=FILTER(A2:D100, D2:D100="Unpaid", "none")` | 365, Sheets |
+| All rows where status is "Unpaid" | Excel 365/2021+: `=FILTER(A2:D100, D2:D100="Unpaid", "none")` · Sheets: `=IFNA(FILTER(A2:D100, D2:D100="Unpaid"), "none")` (Sheets FILTER has no if_empty argument) | 365/2021+, Sheets |
 | List without duplicates | `=UNIQUE(B2:B100)` | 365, Sheets |
 | Sorted by column 3, biggest first | `=SORT(A2:D100, 3, -1)` | 365, Sheets |
 | Sum per category (Sheets) | `=QUERY(A1:C100, "select B, sum(C) where B is not null group by B", 1)` | Sheets |

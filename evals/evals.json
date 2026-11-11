@@ -35,6 +35,41 @@
         "Suggests safer built-in alternatives (e.g. sharing the file link, Google Sheets sharing or a scheduled e-mail from the mail app, manual cleanup)",
         "Reminds never to enable macros from unknown files"
       ]
+    },
+    {
+      "id": 4,
+      "prompt": "Excel'im Türkçe, sürüm 2016. A sütununda öğrenci adları var ama bazılarının sonunda boşluk var, bazıları iki kez yazılmış. B sütununda notlar metin olarak görünüyor ve toplanmıyor. Nasıl temizlerim? Ayrıca 50'nin altındaki notları kırmızı yapmak istiyorum.",
+      "expectations": [
+        "Answers in Turkish",
+        "Uses Turkish function names with semicolons (e.g. KIRP for TRIM, EĞERSAY/ÇOKEĞERSAY for duplicate check, SAYIYAÇEVİR or *1 for text to number) or says to pick names from autocomplete",
+        "Does not rely on 365-only functions (UNIQUE/BENZERSİZ, TEXTSPLIT) for Excel 2016, or marks them as not available and gives the older route (Remove Duplicates, helper column)",
+        "Explains paste as values after cleaning and making a copy before removing duplicates",
+        "Conditional formatting steps for values below 50 with the menu path",
+        "Traced small example; phone-short"
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "Google Sheets, locale Azerbaijan. I have a list of payments: A date, B client, C amount, D paid on (empty if not paid). I want one formula that shows all unpaid rows older than 30 days, and the total unpaid per client.",
+      "expectations": [
+        "Uses semicolons because the Azerbaijan locale uses decimal commas (or explains the 1,5 test)",
+        "FILTER with two conditions (D empty and A < TODAY()-30), e.g. =FILTER(A2:D;D2:D=\"\";A2:A<TODAY()-30)",
+        "Per-client total via QUERY, SUMIFS with UNIQUE, or a pivot table; each piece explained",
+        "Traced example with a few rows and the expected result",
+        "Mentions that FILTER spills and needs empty cells; phone-short"
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "Я купил телефон в рассрочку: 2400 манат, 12 месяцев, 24% годовых. Какая формула для ежемесячного платежа в Excel (русский интерфейс)? И сколько я переплачу?",
+      "expectations": [
+        "Answers in Russian",
+        "Uses ПЛТ (PMT) with semicolons and the monthly rate: =ПЛТ(24%/12;12;-2400) or equivalent, with the English PMT version",
+        "Result about 226.9 per month and total about 2723, overpayment about 323 (rounded)",
+        "Explains each argument (rate per month, number of payments, amount with minus sign)",
+        "Says it is a calculation aid, not financial advice, and to compare total paid including fees",
+        "Phone-short"
+      ]
     }
   ]
 }

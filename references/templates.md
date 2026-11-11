@@ -18,10 +18,10 @@ Sheet **Summary** (month start in B1, e.g. 01.11.2026):
 
 | | Formula |
 |---|---|
-| Income this month | `=SUMIFS(Data!D:D, Data!E:E, "Income", Data!A:A, ">="&B1, Data!A:A, "<="&EOMONTH(B1, 0))` |
+| Income this month | `=SUMIFS(Data!D:D, Data!E:E, "Income", Data!A:A, ">="&B1, Data!A:A, "<"&EOMONTH(B1, 0)+1)` |
 | Expenses this month | same with `"Expense"` |
 | Left | `=B2-B3` |
-| Per category (A6 = "Food") | `=SUMIFS(Data!D:D, Data!B:B, A6, Data!E:E, "Expense", Data!A:A, ">="&$B$1, Data!A:A, "<="&EOMONTH($B$1, 0))` |
+| Per category (A6 = "Food") | `=SUMIFS(Data!D:D, Data!B:B, A6, Data!E:E, "Expense", Data!A:A, ">="&$B$1, Data!A:A, "<"&EOMONTH($B$1, 0)+1)` |
 | Share of expenses | `=IF($B$3=0, 0, B6/$B$3)` formatted as % |
 
 Add a pie or bar chart from the category table.
@@ -54,3 +54,23 @@ Sheet **Plan**:
 ## Weekly timetable grid
 
 Rows = time slots (08:00, 09:00…), columns = Monday…Sunday. Colour by subject with conditional formatting (Format → Conditional formatting → Text contains "Math" → blue). No formulas needed.
+
+## Grade book (teacher or student)
+
+| A Student | B Test 1 | C Test 2 | D Project | E Final | F Weighted % | G Grade |
+|---|---|---|---|---|---|---|
+
+- Weights in a small table: J2 = 20% (Test 1), J3 = 20% (Test 2), J4 = 25% (Project), J5 = 35% (Final); they must add up to 100%.
+- F2: `=B2*$J$2+C2*$J$3+D2*$J$4+E2*$J$5` (scores out of 100).
+- G2: `=IFS(F2>=91,"A",F2>=81,"B",F2>=71,"C",F2>=61,"D",F2>=51,"E",TRUE,"F")` (Excel 2019+ / Sheets; older Excel: nested IF). Use the school's own scale.
+- Class average: `=AVERAGE(F2:F40)`; how many passed: `=COUNTIF(F2:F40,">=51")`.
+- Missing work: `=COUNTBLANK(B2:E2)`; highlight blanks with conditional formatting.
+
+## Loan or instalment (PMT)
+
+Monthly payment for a loan or "nisyə" purchase:
+`=PMT(annual_rate/12, months, -amount)`
+Example: 3000 AZN, 18% a year, 12 months → `=PMT(18%/12, 12, -3000)` ≈ **275.04** a month; total paid = 275.04 × 12 ≈ 3300.5, so the cost of credit ≈ 300.5 AZN.
+- The rate must be per month when payments are monthly (annual ÷ 12).
+- Shops that say "0%" may add fees: compare the **total paid** with the cash price.
+- This is a calculation aid, not financial advice.

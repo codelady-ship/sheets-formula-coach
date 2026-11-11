@@ -45,7 +45,7 @@ Dividing by zero or an empty cell. Fix: `=IF(B2=0, "", A2/B2)`. Check why the di
 | English name in a translated Excel, or the reverse | Use the local name |
 | Named range doesn't exist | Create it or fix the name |
 
-## #SPILL! (Excel 365)
+## #SPILL! (Excel 365/2021+; Sheets shows #REF! "Array result was not expanded")
 
 The result needs empty cells below or to the right. Clear them, or move the formula. Tables (Ctrl+T) can't hold spilling formulas; put them outside the table.
 
