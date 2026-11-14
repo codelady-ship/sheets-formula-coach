@@ -70,6 +70,28 @@
         "Says it is a calculation aid, not financial advice, and to compare total paid including fees",
         "Phone-short"
       ]
+    },
+    {
+      "id": 7,
+      "prompt": "Free plan, my messages run out, so short please. Turkish Excel 2019. I need to pull a student's grade from the sheet 'Notlar' by student ID (IDs in column A, grades in column C). After that I also want failing grades (below 50) highlighted.",
+      "expectations": [
+        "Formula in a code block that works in Turkish Excel 2019: Turkish function names (e.g. DÜŞEYARA or İNDİS/KAÇINCI) and ; separators, no ÇAPRAZARA/XLOOKUP",
+        "Gives a one-line explanation and a short traced example",
+        "Does not write the conditional-formatting steps in full now; offers them next with a one-line 'more?'-style offer",
+        "Cell references follow the user's layout or state the assumption",
+        "Short"
+      ]
+    },
+    {
+      "id": 8,
+      "setup": "The assistant has no web search in this chat.",
+      "prompt": "Does Google Sheets have a GROUPBY function now like Excel? Give me the formula to sum sales by region (regions in A2:A200, sales in B2:B200).",
+      "expectations": [
+        "Does not claim to have checked Google Sheets Help in this chat",
+        "Does not assert that GROUPBY exists in Google Sheets; says it is an Excel 365 function per the references, and to check Google Sheets Help for Sheets",
+        "Gives a working Sheets formula it is sure of (QUERY, or UNIQUE + SUMIF, or a pivot table) in a code block with a piece-by-piece explanation and a short trace",
+        "Answers in English, short"
+      ]
     }
   ]
 }

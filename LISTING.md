@@ -6,7 +6,7 @@ DRAFT. Nothing has been submitted. The owner pastes these fields into agensi.io/
 |---|---|
 | ZIP to upload | `sheets-formula-coach\dist\sheets-formula-coach.zip` (built by `scripts\build-agensi-zip.ps1`) |
 | ZIP contents | SKILL.md, references/ (6), examples/ (1), CHANGELOG.md. No README, LICENSE, evals or tests |
-| Version | 1.1.0 |
+| Version | 1.1.1 |
 | Price | **Free** |
 | Brand | Codelady Abroad |
 
@@ -58,6 +58,7 @@ excel, google-sheets, spreadsheets, formulas, data-cleaning, pivot-tables, stude
 ## Compatibility note
 ```text
 Text only: no scripts, no file access, no add-ins. Works on any agent that can load a SKILL.md. Paste a few rows (with fake names) for the best answer.
+Plan compatibility: works on Free, Pro, Max and Team plans. Short on messages? Say so and it answers one part at a time.
 ```
 
 ## "See it in action" demo
